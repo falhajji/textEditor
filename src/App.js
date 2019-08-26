@@ -19,8 +19,8 @@ class App extends Component {
     this.setState({ color: color });
   };
 
-  // setWeight = style => {
-  //   this.setState({ fontWeight: })
+  // setStyles = style => {
+  //   this.setState({ [style] : !this.state[style] })
   // }
 
   render() {
@@ -31,8 +31,11 @@ class App extends Component {
       return (
         <button
           onClick={() => this.setState({ [style]: !this.state[style] })}
+          // othwerwise we can use cleaner code onClick={() => this.setStyles(style)}
           style={styles[style]}
           key={style}
+          className={`btn btn-${this.state[style] ? "primary" : "light"}`}
+          // the line above is to make the button shadowed/light on click!
         >
           {style}
         </button>
